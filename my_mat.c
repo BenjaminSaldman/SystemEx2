@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "my_mat.h"
 void copyMat(int mat1[10][10],int mat[10][10],int len);
-int INF= 99999;
 int minus=-1;
 void inputToMat(int mat[10][10],int len)
 {
@@ -26,7 +25,7 @@ void inputToMat(int mat[10][10],int len)
 }
 void shortestPath(int mat[10][10],int len, int i, int j)
 {
-    int dist[len][len];
+   int dist[len][len];
     copyMat(dist,mat,len);
     for(int k=0;k<len;k++)
     {
@@ -34,17 +33,24 @@ void shortestPath(int mat[10][10],int len, int i, int j)
         {
             for(int l=0;l<len;l++)
             {
-                if(dist[m][k]!=0 && dist[k][l]!=0)
+                if(l==m)
                 {
-                    if(dist[m][l]==0){
-                        dist[m][l]=dist[m][k]+dist[k][l];
-                        dist[l][m]=dist[m][k]+dist[k][l];
-                    }
-                    else if(dist[m][k]+dist[k][l]<dist[m][l]){
-                        dist[m][l]=dist[m][k]+dist[k][l];
-                        dist[l][m]=dist[m][k]+dist[k][l];
-                    }
+                    dist[m][l]=0;
                 }
+                else if(dist[m][l]==0 && (dist[m][k]==0 || dist[k][l]==0))
+                {
+                    dist[m][l]=0;
+                }
+                else if(dist[m][l]==0)
+                {
+                    dist[m][l]=dist[m][k]+dist[k][l];
+                }
+                else if(dist[m][k]>0 && dist[k][l] >0)
+                {
+                    if(dist[m][k]+dist[k][l]<dist[m][l])
+                        dist[m][l]=dist[m][k]+dist[k][l];
+                }
+               
             }
         }
     }
@@ -63,17 +69,24 @@ void path (int mat[10][10],int len, int i, int j)
         {
             for(int l=0;l<len;l++)
             {
-                if(dist[m][k]!=0 && dist[k][l]!=0)
+                if(l==m)
                 {
-                    if(dist[m][l]==0){
-                        dist[m][l]=dist[m][k]+dist[k][l];
-                        dist[l][m]=dist[m][k]+dist[k][l];
-                    }
-                    else if(dist[m][k]+dist[k][l]<dist[m][l]){
-                        dist[m][l]=dist[m][k]+dist[k][l];
-                        dist[l][m]=dist[m][k]+dist[k][l];
-                    }
+                    dist[m][l]=0;
                 }
+                else if(dist[m][l]==0 && (dist[m][k]==0 || dist[k][l]==0))
+                {
+                    dist[m][l]=0;
+                }
+                else if(dist[m][l]==0)
+                {
+                    dist[m][l]=dist[m][k]+dist[k][l];
+                }
+                else if(dist[m][k]>0 && dist[k][l] >0)
+                {
+                    if(dist[m][k]+dist[k][l]<dist[m][l])
+                        dist[m][l]=dist[m][k]+dist[k][l];
+                }
+               
             }
         }
     }
