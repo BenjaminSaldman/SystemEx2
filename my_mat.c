@@ -24,21 +24,24 @@ void shortestPath(int mat[10][10],int len, int i, int j)
         {
             for(int l=0;l<len;l++)
             {
-                if(dist[m][k]+dist[k][l]<dist[m][l])
+                if(dist[m][k]!=0 && dist[k][l]!=0)
                 {
-                    dist[m][l]=dist[m][k]+dist[k][l];
+                    if(dist[m][l]==0)
+                        dist[m][l]=dist[m][k]+dist[k][l];
+                    else if(dist[m][k]+dist[k][l]<dist[m][l])
+                        dist[m][l]=dist[m][k]+dist[k][l];
                 }
             }
         }
     }
-    if( dist[i][j]<INF )
+    if( dist[i][j]!=0 )
         printf("%d\n",dist[i][j]);
     else 
         printf("%d\n",minus);
 }
 void path (int mat[10][10],int len, int i, int j)
 {
-    int dist[len][len];
+     int dist[len][len];
     copyMat(dist,mat,len);
     for(int k=0;k<len;k++)
     {
@@ -46,14 +49,17 @@ void path (int mat[10][10],int len, int i, int j)
         {
             for(int l=0;l<len;l++)
             {
-                if(dist[m][k]+dist[k][l]<dist[m][l])
+                if(dist[m][k]!=0 && dist[k][l]!=0)
                 {
-                    dist[m][l]=dist[m][k]+dist[k][l];
+                    if(dist[m][l]==0)
+                        dist[m][l]=dist[m][k]+dist[k][l];
+                    else if(dist[m][k]+dist[k][l]<dist[m][l])
+                        dist[m][l]=dist[m][k]+dist[k][l];
                 }
             }
         }
     }
-    if(dist[i][j]<INF)
+    if(dist[i][j]!=0)
         printf("True\n");
     else 
         printf("False\n");
@@ -65,10 +71,7 @@ void copyMat(int mat1[10][10],int mat[10][10],int len)
     {
         for(int j=0;j<len;j++)
         {
-            if(mat[i][j]==0)
-                mat1[i][j]=INF;
-            else
-                mat1[i][j]=mat[i][j];
+            mat1[i][j]=mat[i][j];
         }
     }
 }
