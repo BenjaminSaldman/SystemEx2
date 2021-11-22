@@ -30,10 +30,10 @@ void shortestPath(int mat[10][10],int len, int i, int j)
             }
         }
     }
-    if( dist[i][j]!=INF )
-        printf("%d",dist[i][j]);
+    if( dist[i][j]<INF )
+        printf("%d\n",dist[i][j]);
     else 
-        printf("-1");
+        printf("-1\n");
 }
 void path (int mat[10][10],int len, int i, int j)
 {
@@ -52,12 +52,10 @@ void path (int mat[10][10],int len, int i, int j)
             }
         }
     }
-    if(i!=j && dist[i][j]!=INF)
-        printf("True");
-    else if(i!=j && dist[i][j]==INF)
-        printf("False");
-    else
-        printf("True");
+    if(dist[i][j]<INF)
+        printf("True\n");
+    else if(dist[i][j]>=INF)
+        printf("False\n");
         
 }
 void copyMat(int mat1[10][10],int mat[10][10],int len)
@@ -66,7 +64,7 @@ void copyMat(int mat1[10][10],int mat[10][10],int len)
     {
         for(int j=0;j<len;j++)
         {
-            if(i!=j && mat[i][j]==0)
+            if(mat[i][j]==0)
                 mat1[i][j]=INF;
             else
                 mat1[i][j]=mat[i][j];
