@@ -5,11 +5,22 @@ int INF= 99999;
 int minus=-1;
 void inputToMat(int mat[10][10],int len)
 {
+    int status;
+    int flag=0;
     for(int i=0;i<len;i++)
     {
         for(int j=0;j<len;j++)
         {
-            scanf("%d",&mat[i][j]);
+            if(flag==0){
+                status=scanf("%d",&mat[i][j]);
+                if(status!=1)
+                {
+                    flag++;
+                    mat[i][j]=0;
+                }
+            }
+            else
+                mat[i][j]=0;
         }
     }
 }
