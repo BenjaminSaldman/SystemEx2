@@ -6,7 +6,8 @@ void inputToMat(int mat[10][10],int len)
 {
     for(int i=0;i<len;i++)
     {
-        for(int j=0;j<len;j++){
+        for(int j=0;j<len;j++)
+        {
             scanf("%d",&mat[i][j]);
         }
     }
@@ -53,10 +54,10 @@ void path (int mat[10][10],int len, int i, int j)
     }
     if(i!=j && dist[i][j]!=INF)
         printf("True");
-    else if((i!=j && dist[i][j]==INF)
+    else if(i!=j && dist[i][j]==INF)
         printf("False");
     else
-        print("True");
+        printf("True");
         
 }
 void copyMat(int mat1[10][10],int mat[10][10],int len)
