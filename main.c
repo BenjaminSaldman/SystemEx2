@@ -18,6 +18,6 @@ int main(){
         }
         scanf("%c",&c);
     }
-    printf('\n');
+    printf("\n");
     return 0;
 }

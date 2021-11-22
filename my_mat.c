@@ -2,6 +2,7 @@
 #include "my_mat.h"
 void copyMat(int mat1[10][10],int mat[10][10],int len);
 int INF= 99999;
+int minus=-1;
 void inputToMat(int mat[10][10],int len)
 {
     for(int i=0;i<len;i++)
@@ -33,7 +34,7 @@ void shortestPath(int mat[10][10],int len, int i, int j)
     if( dist[i][j]<INF )
         printf("%d\n",dist[i][j]);
     else 
-        printf("-1\n");
+        printf("%d\n",minus);
 }
 void path (int mat[10][10],int len, int i, int j)
 {
