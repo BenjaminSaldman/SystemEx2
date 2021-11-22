@@ -15,7 +15,6 @@ void inputToMat(int mat[10][10],int len)
 }
 void shortestPath(int mat[10][10],int len, int i, int j)
 {
-    
     int dist[len][len];
     copyMat(dist,mat,len);
     for(int k=0;k<len;k++)
@@ -26,10 +25,14 @@ void shortestPath(int mat[10][10],int len, int i, int j)
             {
                 if(dist[m][k]!=0 && dist[k][l]!=0)
                 {
-                    if(dist[m][l]==0)
+                    if(dist[m][l]==0){
                         dist[m][l]=dist[m][k]+dist[k][l];
-                    else if(dist[m][k]+dist[k][l]<dist[m][l])
+                        dist[l][m]=dist[m][k]+dist[k][l];
+                    }
+                    else if(dist[m][k]+dist[k][l]<dist[m][l]){
                         dist[m][l]=dist[m][k]+dist[k][l];
+                        dist[l][m]=dist[m][k]+dist[k][l];
+                    }
                 }
             }
         }
@@ -41,7 +44,7 @@ void shortestPath(int mat[10][10],int len, int i, int j)
 }
 void path (int mat[10][10],int len, int i, int j)
 {
-     int dist[len][len];
+    int dist[len][len];
     copyMat(dist,mat,len);
     for(int k=0;k<len;k++)
     {
@@ -51,10 +54,14 @@ void path (int mat[10][10],int len, int i, int j)
             {
                 if(dist[m][k]!=0 && dist[k][l]!=0)
                 {
-                    if(dist[m][l]==0)
+                    if(dist[m][l]==0){
                         dist[m][l]=dist[m][k]+dist[k][l];
-                    else if(dist[m][k]+dist[k][l]<dist[m][l])
+                        dist[l][m]=dist[m][k]+dist[k][l];
+                    }
+                    else if(dist[m][k]+dist[k][l]<dist[m][l]){
                         dist[m][l]=dist[m][k]+dist[k][l];
+                        dist[l][m]=dist[m][k]+dist[k][l];
+                    }
                 }
             }
         }
