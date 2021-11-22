@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "my_mat.h"
-void copyMat(int mat1[][],int mat[][],int len);
+void copyMat(int mat1[10][10],int mat[10][10],int len);
 int INF= 99999;
-void inputToMat(int mat[][],int len)
+void inputToMat(int mat[10][10],int len)
 {
     for(int i=0;i<len;i++)
     {
@@ -11,7 +11,7 @@ void inputToMat(int mat[][],int len)
         }
     }
 }
-void shortestPath(int mat[][],int len, int i, int j)
+void shortestPath(int mat[10][10],int len, int i, int j)
 {
     
     int dist[len][len];
@@ -34,7 +34,7 @@ void shortestPath(int mat[][],int len, int i, int j)
     else 
         printf("-1");
 }
-void path (int mat[][],int len, int i, int j)
+void path (int mat[10][10],int len, int i, int j)
 {
     int dist[len][len];
     copyMat(dist,mat,len);
@@ -59,7 +59,7 @@ void path (int mat[][],int len, int i, int j)
         print("True");
         
 }
-void copyMat(int mat1[][],int mat[][],int len)
+void copyMat(int mat1[10][10],int mat[10][10],int len)
 {
     for(int i=0;i<len;i++)
     {
