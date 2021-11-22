@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "my_mat.c"
+#include "my_mat.h"
 void copyMat(int mat1[][],int mat[][],int len);
 int INF= 99999;
 void inputToMat(int mat[][],int len)
