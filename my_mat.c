@@ -24,9 +24,9 @@ void shortestPath(int mat[10][10],int len, int i, int j)
         {
             for(int l=0;l<len;l++)
             {
-                if(dist[m][k]+dist[k][l]<dist[m][j])
+                if(dist[m][k]+dist[k][l]<dist[m][l])
                 {
-                    dist[m][j]=dist[m][k]+dist[k][l];
+                    dist[m][l]=dist[m][k]+dist[k][l];
                 }
             }
         }
@@ -46,16 +46,16 @@ void path (int mat[10][10],int len, int i, int j)
         {
             for(int l=0;l<len;l++)
             {
-                if(dist[m][k]+dist[k][l]<dist[m][j])
+                if(dist[m][k]+dist[k][l]<dist[m][l])
                 {
-                    dist[m][j]=dist[m][k]+dist[k][l];
+                    dist[m][l]=dist[m][k]+dist[k][l];
                 }
             }
         }
     }
     if(dist[i][j]<INF)
         printf("True\n");
-    else if(dist[i][j]>=INF)
+    else 
         printf("False\n");
         
 }
